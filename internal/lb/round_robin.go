@@ -1,16 +1,14 @@
 package lb
 
-/*
-import (
-	"sync"
-	"sync/atomic"
-)
-*/
+type RoundRobin struct {
+	current int
+}
 
-// RoundRobin implements the round-robin load balancing algorithm
-
-// NewRoundRobin creates a new round-robin load balancer
-
-// NextBackend selects the next backend using round-robin
-
-// RegisterBackend adds a backend to the round-robin balancer
+func (rr *RoundRobin) SelectBackend(backends []*Backend) *Backend {
+	if len(backends) == 0 {
+		return nil
+	}
+	backend := backends[rr.current]
+	rr.current = (rr.current + 1) % len(backends)
+	return backend
+}

@@ -1,0 +1,10 @@
+{
+	"backends": [
+		"http://backend1.com",
+		"http://backend2.com",
+		"http://backend3.com"
+	],
+	"algorithm": "round_robin",
+	"max_connections": 100,
+	"health_path": "/health"
+}

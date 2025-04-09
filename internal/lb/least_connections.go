@@ -1,18 +1,13 @@
 package lb
 
-/*
-import (
-	"math"
-	"sync"
-)
-*/
+type LeastConnections struct{}
 
-// LeastConnections implements the least connections load balancing algorithm
-
-// NewLeastConnections creates a new least connections load balancer
-
-// NextBackend selects the backend with the least active connections
-
-// RegisterBackend adds a backend to the least connections balancer
-
-// RemoveBackend removes a backend from the least connections balancer
+func (lc *LeastConnections) SelectBackend(backends []*Backend) *Backend {
+	var selected *Backend
+	for _, backend := range backends {
+		if selected == nil || backend.GetConnections() < selected.GetConnections() {
+			selected = backend
+		}
+	}
+	return selected
+}

@@ -1,1 +1,10 @@
-# to compose project with backends
+version: "3.8"
+services:
+  loadbalancer:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config/config.json:/app/config.json
+    environment:
+      - CONFIG_PATH=/app/config.json
