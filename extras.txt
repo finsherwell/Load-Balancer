@@ -1,0 +1,25 @@
+Core Improvements
+
+Health checks - Implement active and passive health monitoring to detect failing servers and temporarily remove them from rotation
+Weighted load balancing - Allow servers to handle traffic proportional to their capacity
+Sticky sessions - Route requests from the same client to the same backend server
+Circuit breaker pattern - Automatically stop sending traffic to failing services
+
+Advanced Features
+
+Rate limiting - Protect backend services from being overwhelmed
+Metrics collection - Capture performance data (response times, error rates)
+API-based configuration - Allow runtime updates without restarting
+TLS termination - Handle HTTPS traffic and certificate management
+
+Developer Experience
+
+Plugin architecture - Allow custom modules to be added
+Configuration via environment variables and files
+Comprehensive logging - Include request tracing and structured logs
+
+Performance Optimisations
+
+Connection pooling - Maintain persistent connections to backend servers
+Retries with backoff - Handle transient failures gracefully
+Timeout management - Prevent hanging connections
